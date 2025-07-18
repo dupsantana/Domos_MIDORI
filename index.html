@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOMOS COMPANY</title>
+  <link rel="stylesheet" href="SRC/VIEW/Styles/style_form.css" />
+  <link rel="stylesheet" href="SRC/VIEW/Styles/style_home.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+  <header class="container_header">
+    <img src="LOGO 2.png" alt="Logo" />
+    <div class="header_content">
+      <h1><span>DOMOS</span> COMPANY</h1>
+    </div>
+  </header>
+
+  <main>
+    <div class="container_menu">
+      <div class="campo_btns">
+        <div class="btn_cadastro" id="btn_cadastro">
+          <button><i class="fa-solid fa-clipboard fa-lg"></i> <span>Cadastrar</span></button>
+        </div>
+        <div class="btn_visualizar" id="btn_visualizar">
+          <button><i class="fa-solid fa-eye"></i> <span>Visualizar</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulário de Cadastro -->
+    <div class="container_form hidden" id="form">
+      <form id="formElement">
+        <div class="row_container">
+          <div class="input-box">
+            <label for="nomeCliente" class="form-label">NOME DO CLIENTE</label>
+            <input type="text" name="nome_cliente" id="nomeCliente" class="form_control_nome"
+              placeholder="Inserir nome do cliente" />
+          </div>
+          <div class="input-box">
+            <label for="dt_entrada" class="form-label">DATA DO PRIMEIRO CONTATO</label>
+            <input type="date" name="dt_entrada" id="dt_entrada" class="dt_entrada" />
+          </div>
+          <div class="input-box">
+            <label for="procedimento" class="form-label">PROCEDIMENTO</label>
+            <select name="procedimento" id="procedimento" class="form_control_status_lead">
+              <option value="">-- Selecione --</option>
+              <option value="Peeling Químico">Peeling Químico</option>
+              <option value="Peeling + Microagulhamento (pacote)">Peeling Químico + Microagulhamento (pacote)</option>
+              <option value="Microagulhamento">Microagulhamento</option>
+              <option value="Limpeza de Pele">Limpeza de Pele</option>
+              <option value="Drenagem Linfática">Drenagem Linfática</option>
+              <option value="Detox Corporal (Método MAF)">Detox Corporal (Método MAF)</option>
+              <option value="Peeling Brilhante">Peeling Brilhante</option>
+              <option value="Massagem Relaxante">Massagem Relaxante</option>
+            </select>
+          </div>
+          <div class="campo_statuslead">
+            <label for="statusLead" class="form-label">ETAPA DO FUNIL</label>
+            <select name="status_lead" id="statusLead" class="form_control_status_lead">
+              <option value="">-- Selecione --</option>
+              <option value="Em contato">Interesse</option>
+              <option value="Orçamento enviado">Agendado</option>
+              <option value="Negociação">Retorno</option>
+              <option value="Fechado">Compareceu</option>
+              <option value="Perdido">Contato Realizado</option>
+              <option value="Perdido">Desistência</option>
+            </select>
+          </div>
+          <div class="campo_etapa_funil">
+            <label for="etapaFunil" class="form-label">VALOR DO ORÇAMENTO</label>
+            <input type="text" name="etapa_funil" id="etapa_funil" class="form_control_funil"
+              placeholder="0,00" />
+          </div>
+          <div class="campo_dtfechamento">
+            <label for="dataFechamento" class="form-label">DATA DO AGENDAMENTO</label>
+            <input type="date" name="dtfechamento" id="dataFechamento"
+              class="form_control_dtfechamento" />
+          </div>
+          <div class="campo_statuspg">
+            <label for="status_pagamento" class="form-label">PAGAMENTO</label>
+            <select name="status_pagamento" id="status_pagamento" class="form_control_status_lead">
+              <option value="">-- Selecione --</option>
+              <option value="Pago">Pago</option>
+              <option value="Aguardando">Aguardando</option>
+              <option value="Parcelado">Parcelado</option>
+              <option value="Não Pago">Não Pago</option>
+              <option value="N/A">N/A</option>
+            </select>
+          </div>
+          <div class="campo_obs full-width">
+            <label for="observacoes" class="form_label_obs">OBSERVAÇÕES</label>
+            <textarea name="observacoes" id="observacoes" class="form_control_obs"
+              placeholder="Descreva aqui suas observações"></textarea>
+          </div>
+        </div>
+        <div class="container_btn">
+          <button type="submit" class="btn-salvar"><i class="fas fa-save"></i> Salvar</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Tabela de Visualização -->
+    <div class="tabela-container hidden" id="visualizarContainer">
+      <div class="container-exportar">
+        <button id="btn_exportar_todos"><i class="fas fa-save"></i> Baixar todos os registros</button>
+      </div>
+      <div class="tabela_dashboard">
+        <table id="tabela_registros" class="tabela_estilizada">
+          <thead>
+            <tr>
+              <th>Nome do Cliente</th>
+              <th>Data de Entrada</th>
+              <th>Procedimento</th>
+              <th>Etapa do funil</th>
+              <th>Valor do Orçamento</th>
+              <th>Data de Fechamento</th>
+              <th>Status do Pagamento</th>
+              <th>Observações</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="JAVASCRIPT/script.js"></script>
+</body>
+</html>

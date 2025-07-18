@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editar Registro - DOMOS COMPANY</title>
+  <link rel="stylesheet" href="SRC/VIEW/Styles/style_edit.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container_form">
+    <h2>Editar Registro</h2>
+    <form id="editForm">
+      <div class="row_container">
+
+        <!-- Nome do Cliente -->
+        <div class="input-box">
+          <label for="nomeCliente" class="form-label">NOME DO CLIENTE</label>
+          <input type="text" name="nome_cliente" id="nomeCliente" class="form_control_nome" required />
+        </div>
+
+        <!-- Data do Primeiro Contato -->
+        <div class="input-box">
+          <label for="dt_entrada" class="form-label">DATA DO PRIMEIRO CONTATO</label>
+          <input type="date" name="dt_entrada" id="dt_entrada" class="dt_entrada" required />
+        </div>
+
+        <!-- Procedimento -->
+        <div class="input-box">
+          <label for="procedimento" class="form-label">PROCEDIMENTO</label>
+          <select name="procedimento" id="procedimento" class="form_control_status_lead" required>
+            <option value="">-- Selecione --</option>
+            <option value="Peeling Químico">Peeling Químico</option>
+            <option value="Peeling + Microagulhamento (pacote)">Peeling Químico + Microagulhamento (pacote)</option>
+            <option value="Microagulhamento">Microagulhamento</option>
+            <option value="Limpeza de Pele">Limpeza de Pele</option>
+            <option value="Drenagem Linfática">Drenagem Linfática</option>
+            <option value="Detox Corporal (Método MAF)">Detox Corporal (Método MAF)</option>
+            <option value="Peeling Brilhante">Peeling Brilhante</option>
+            <option value="Massagem Relaxante">Massagem Relaxante</option>
+          </select>
+        </div>
+
+        <!-- Etapa do Funil -->
+        <div class="campo_statuslead">
+          <label for="statusLead" class="form-label">ETAPA DO FUNIL</label>
+          <select name="status_lead" id="statusLead" class="form_control_status_lead" required>
+            <option value="">-- Selecione --</option>
+            <option value="Em contato">Interesse</option>
+            <option value="Orçamento enviado">Agendado</option>
+            <option value="Negociação">Retorno</option>
+            <option value="Fechado">Compareceu</option>
+            <option value="Perdido">Contato Realizado</option>
+            <option value="Perdido">Desistência</option>
+          </select>
+        </div>
+
+        <!-- Valor do Orçamento -->
+        <div class="campo_etapa_funil">
+          <label for="etapaFunil" class="form-label">VALOR DO ORÇAMENTO</label>
+          <input type="text" name="etapa_funil" id="etapa_funil" class="form_control_funil" />
+        </div>
+
+        <!-- Data do Agendamento -->
+        <div class="campo_dtfechamento">
+          <label for="dataFechamento" class="form-label">DATA DO AGENDAMENTO</label>
+          <input type="date" name="dtfechamento" id="dataFechamento" class="form_control_dtfechamento" />
+        </div>
+
+        <!-- Status do Pagamento -->
+        <div class="campo_statuspg">
+          <label for="status_pagamento" class="form-label">STATUS DO PAGAMENTO</label>
+          <select name="status_pagamento" id="status_pagamento" class="form_control_status_lead" required>
+            <option value="">-- Selecione --</option>
+            <option value="Pago">Pago</option>
+            <option value="Aguardando">Aguardando</option>
+            <option value="Parcelado">Parcelado</option>
+            <option value="Não Pago">Não Pago</option>
+            <option value="N/A">N/A</option>
+          </select>
+        </div>
+
+        <!-- Observações -->
+        <div class="campo_obs full-width">
+          <label for="observacoes" class="form_label_obs">OBSERVAÇÕES</label>
+          <textarea name="observacoes" id="observacoes" class="form_control_obs"></textarea>
+        </div>
+      </div>
+
+      <div class="container_btn">
+        <button type="submit" class="btn-salvar"><i class="fas fa-save"></i> Atualizar</button>
+        <button type="button" id="cancelBtn" class="btn-cancelar"><i class="fas fa-times"></i> Cancelar</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="JAVASCRIPT/edit.js"></script>
+</body>
+</html>
