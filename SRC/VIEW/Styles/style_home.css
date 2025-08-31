@@ -92,11 +92,14 @@ body {
 
 /* ================= ESTILO DA TABELA DE VISUALIZAÇÃO ================= */
 .tabela-container {
-    width: 80%;
+    width: 100%;
     margin: 20px auto;
     transition: all 0.5s ease;
 }
+.container_form{
+    width: 100%;
 
+}
 .tabela-show {
     display: block !important;
     animation: fadeIn 0.9s;
@@ -266,4 +269,18 @@ body {
     .container_menu {
         margin-top: 40px;
     }
+}
+
+.container_menu {
+        margin-top: 10px;
+    }
+
+.titulo-pagina{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    color: #210f2d;
+    margin-top: 30px;
 }
